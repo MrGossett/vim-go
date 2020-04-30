@@ -46,6 +46,9 @@ function! go#lint#Gometa(bang, autosave, ...) abort
 
   let cmd += goargs
 
+  " add any user-provided args
+  let cmd += go#config#MetalinterCommandArgs()
+
   let errformat = s:errorformat(l:metalinter)
 
   if l:metalinter == 'gopls'
